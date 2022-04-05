@@ -7,10 +7,14 @@ import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import MenuOpenOutlinedIcon from '@mui/icons-material/MenuOpenOutlined';
 import {useState, useEffect} from "react"
 import Cookie from "js-cookie"
+import useWindowDimensions from './../actions/useWindowDimensions';
 
 const logo = "/bookstore-logo.png"
 
 export default function Home({posts}) {
+  const {windowDimensions} = useWindowDimensions()
+  const width = windowDimensions.width;
+  console.log(windowDimensions.width)
   const [flag, setFlag] = useState(true);
   
 
@@ -22,7 +26,7 @@ export default function Home({posts}) {
     }
   };
   
-  const renderPosts = (posts) => {
+  const renderPostsMobile = (posts) => {
 
     return posts.slice(0,4).map(post =>
       <div key={post.id} className="feed-child">
@@ -43,6 +47,28 @@ export default function Home({posts}) {
       </div>
     )
   }
+  const renderPostsDesktop = (posts) => {
+
+    return posts.slice(0,8).map(post =>
+      <div key={post.id} className="feed-child">
+          <div className="image">
+          <Image
+          src={post.volumeInfo.imageLinks.thumbnail}
+          alt=""
+          width={120}
+          height={160}
+          />
+          </div>
+          <div className="data">
+            <h5>Title: {post.volumeInfo.title}</h5>
+            <h6>Authors: {post.volumeInfo.authors}</h6>
+            <h6>Page Count: {post.volumeInfo.pageCount}</h6>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ut purus varius neque lacinia mollis.</p>
+          </div>
+      </div>
+    )
+  }
+  
 
   return (
     <div className="mainParent">
@@ -118,8 +144,11 @@ export default function Home({posts}) {
       
       </div>
       <div className="feed-parent">
-        { posts &&
-          renderPosts(posts)
+        { width >= 768 &&
+          renderPostsDesktop(posts)
+        }
+        { width < 768 &&
+          renderPostsMobile(posts)
         }
       </div>
       </main>
