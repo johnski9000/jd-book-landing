@@ -107,7 +107,7 @@ a {
 .data {
 height: 95%;
 width: 60%;
-padding-left: 15px;
+padding-right: 5px;
 display: flex;
   justify-content: center;
   flex-flow: column;
