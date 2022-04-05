@@ -5,11 +5,14 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import MenuOpenOutlinedIcon from '@mui/icons-material/MenuOpenOutlined';
-import {useState} from "react"
+import {useState, useEffect} from "react"
+import Cookie from "js-cookie"
 
+const logo = "/bookstore-logo.png"
 
 export default function Home({posts}) {
   const [flag, setFlag] = useState(true);
+  
 
   const handleClick = () => {
     if (flag === true) {
@@ -20,6 +23,7 @@ export default function Home({posts}) {
   };
   
   const renderPosts = (posts) => {
+
     return posts.slice(0,4).map(post =>
       <div key={post.id} className="feed-child">
           <div className="image">
@@ -43,7 +47,22 @@ export default function Home({posts}) {
   return (
     <div className="mainParent">
       <div className="parentTitle">
-            <h1>The Book Store</h1>
+            <div className="desktop-header">
+              <Image
+                src={logo}
+                alt=""
+                width={180}
+                height={120}
+                />
+            </div>
+            <div className="header-title">
+              <h1>The Book Store</h1>
+            </div>
+            <div className="desktop-header-icon">
+              <TwitterIcon className="header-child"/>
+              <FacebookIcon className="header-child"/>
+              <InstagramIcon className="header-child"/>
+            </div>
         </div>
         <div className="flex-center">
       { flag &&
@@ -53,36 +72,47 @@ export default function Home({posts}) {
         <MenuOpenOutlinedIcon className="menu" onClick={handleClick}/>
         }
     </div>
-      <p>
+    <div className="desktop-nav-parent">
+      <div className="desktop-nav">
+        <div className="nav-child">Home</div>
+        <div className="nav-child">Books</div>
+        <div className="nav-child">Magazines</div>
+        <div className="nav-child">E-books</div>
+        <div className="nav-child">Account</div>
+      </div>
+    </div>
+    
+      <p className="para">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ut purus varius neque lacinia mollis. Phasellus consequat et lacus ac auctor. Ut eget tincidunt massa. Sed at vulputate dui. Nullam metus urna, volutpat nec felis nec, congue varius magna.
       </p>
+      <main>
       <div className="feature-parent">
         <h1>Featured</h1>
         <div className="feature-card">
           <Image
-          src={posts[1].volumeInfo.imageLinks.thumbnail}
+          src={posts[8].volumeInfo.imageLinks.thumbnail}
           alt=""
           width={128}
           height={160}
           />
           <div className="bookInfo">
-            <h5>Title: {posts[1].volumeInfo.title}</h5>
-            <h6>Authors: {posts[1].volumeInfo.authors}</h6>
-            <h6>Page Count: {posts[1].volumeInfo.pageCount}</h6>
+            <h5>Title: {posts[8].volumeInfo.title}</h5>
+            <h6>Authors: {posts[8].volumeInfo.authors}</h6>
+            <h6>Page Count: {posts[8].volumeInfo.pageCount}</h6>
           </div>
           
         </div>
         <div className="feature-card">
         <Image
-          src={posts[2].volumeInfo.imageLinks.thumbnail}
+          src={posts[9].volumeInfo.imageLinks.thumbnail}
           alt=""
           width={128}
           height={160}
           />
           <div className="bookInfo">
-            <h5>Title: {posts[2].volumeInfo.title}</h5>
-            <h6>Authors: {posts[2].volumeInfo.authors}</h6>
-            <h6>Page Count: {posts[2].volumeInfo.pageCount}</h6>
+            <h5>Title: {posts[9].volumeInfo.title}</h5>
+            <h6>Authors: {posts[9].volumeInfo.authors}</h6>
+            <h6>Page Count: {posts[9].volumeInfo.pageCount}</h6>
           </div>
         </div>
       
@@ -92,6 +122,8 @@ export default function Home({posts}) {
           renderPosts(posts)
         }
       </div>
+      </main>
+      
       <footer>
         <TwitterIcon className="footer-child"/>
         <FacebookIcon className="footer-child"/>

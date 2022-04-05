@@ -46,12 +46,12 @@ a {
 .feature-card {
   width: 85%;
   height: 320px;
-  background-color: rgb(236, 234, 234);
   margin-top: 20px;
   display: flex;
   flex-flow: column;
   justify-content: center;
   align-items: center;
+  background-color: rgb(236, 234, 234);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .bookInfo {
@@ -67,6 +67,7 @@ a {
 }
 .bookInfo h6 {
   margin: 0;
+  text-align: center;
 }
 
 .feed-parent {
@@ -121,4 +122,115 @@ footer {
   margin: 25px;
   width: 50px;
   height: 50px;
+}
+
+
+/* Desktop transition */
+
+@media (max-width: 768px) {
+  .desktop-header {
+    display: none;
+  }
+  .desktop-header-icon {
+    display: none;
+  }
+  .desktop-nav-parent {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  footer { 
+    display: none;
+  }
+  h1 {
+    margin: 0;
+    font-size: 50px;
+  }
+  .header-title {
+    width: 50%;
+    text-align: center;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .parentTitle {
+    margin-bottom: 100px;
+  }
+  .flex-center {
+    display: none;
+  }
+  
+  .desktop-header-icon {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+  .desktop-header{
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    padding-top: 30px;
+  }
+  .header-child{
+    width: 25px;
+    height: 25px;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  .desktop-nav-parent {
+    width: 100%;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+
+  .desktop-nav {
+    background-color: rgb(236, 234, 234);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 75%;
+    height: 100%;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+  }
+
+  .nav-child{
+    width: 18%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: large;
+    font-weight: bold;
+  }
+  main {
+    width: 100%;
+    display: flex;
+    flex-flow: row-reverse wrap;
+  }
+  .feature-parent {
+    width: 29%;
+    flex-flow: column;
+    background-color: rgb(238, 232, 232);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding-top: 25px;
+  padding-bottom: 25px;
+  }
+  .feed-parent {
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  .feed-child {
+    width: 44%;
+  }
 }
