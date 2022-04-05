@@ -43,6 +43,7 @@ a {
   align-items: center;
   flex-flow: column;
   background-color: rgb(238, 232, 232);
+  transition: background-color 2s ease-in;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding-bottom: 50px;
   margin-top: 25px;
@@ -246,4 +247,13 @@ footer {
   .para {
     margin-bottom: 30px;
   }
+}
+
+.is-active {
+  transition: background-color 2s ease-out;
+  background-color: gray;
+}
+
+.is-active:click {
+  
 }

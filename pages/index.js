@@ -16,7 +16,22 @@ export default function Home({posts}) {
   const {windowDimensions} = useWindowDimensions()
   const width = windowDimensions.width;
   const [flag, setFlag] = useState(true);
-  
+  const [isActive, setActive] = useState(localStorage.getItem('isActive'));
+  const [isActive1, setActive1] = useState(localStorage.getItem('isActive1'));
+
+  const ToggleClass = () => {
+    setActive(!isActive); 
+   };
+
+   const ToggleClass1 = () => {
+    setActive1(!isActive1); 
+   };
+
+   useEffect(()=>{
+    localStorage.setItem('isActive', isActive);
+    localStorage.setItem('isActive1', isActive1)
+  },[isActive, isActive1]);
+
 
   const handleClick = () => {
     if (flag === true) {
@@ -43,6 +58,7 @@ export default function Home({posts}) {
             <h6>Authors: {post.volumeInfo.authors}</h6>
             <h6>Page Count: {post.volumeInfo.pageCount}</h6>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ut purus varius neque lacinia mollis.</p>
+            {/* <p>{post.volumeInfo.description}</p> */}
           </div>
       </div>
     )
@@ -112,7 +128,7 @@ export default function Home({posts}) {
       <main>
       <div className="feature-parent">
         <h1>Featured</h1>
-        <div className="feature-card">
+        <div className={isActive ? "feature-card is-active" : "feature-card"} onClick={ToggleClass}>
           <Image
           src={posts[8].volumeInfo.imageLinks.thumbnail}
           alt=""
@@ -126,7 +142,7 @@ export default function Home({posts}) {
           </div>
           
         </div>
-        <div className="feature-card">
+        <div className={isActive1 ? "feature-card is-active" : "feature-card"} onClick={ToggleClass1}>
         <Image
           src={posts[9].volumeInfo.imageLinks.thumbnail}
           alt=""
