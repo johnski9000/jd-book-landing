@@ -1,10 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+
 html,
 body {
   padding: 0;
   margin: 20px;
   margin-top: 0px;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
+    font-family: 'Roboto Condensed', sans-serif;
     background-color: white;
 }
 
@@ -21,6 +24,7 @@ a {
   display: flex;
   justify-content: center;
   max-height: 70px;
+  margin-top: 30px;
 }
 .flex-center {
   display: flex;
@@ -33,11 +37,15 @@ a {
 
 .feature-parent {
   /* background-color: rgb(190, 188, 188); */
-  height: 700px;
+  height: 800px;
   width: 100%;
   display: flex;
   align-items: center;
   flex-flow: column;
+  background-color: rgb(238, 232, 232);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding-bottom: 50px;
+  margin-top: 25px;
 }
 .feature-parent h1 {
   margin-bottom: 0;
@@ -229,6 +237,7 @@ footer {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    padding-bottom: 125px;
   }
   .feed-child {
     width: 44%;

@@ -9,12 +9,12 @@ import {useState, useEffect} from "react"
 import Cookie from "js-cookie"
 import useWindowDimensions from './../actions/useWindowDimensions';
 
+
 const logo = "/bookstore-logo.png"
 
 export default function Home({posts}) {
   const {windowDimensions} = useWindowDimensions()
   const width = windowDimensions.width;
-  console.log(windowDimensions.width)
   const [flag, setFlag] = useState(true);
   
 
@@ -106,7 +106,6 @@ export default function Home({posts}) {
         <div className="nav-child">Account</div>
       </div>
     </div>
-    
       <p className="para">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ut purus varius neque lacinia mollis. Phasellus consequat et lacus ac auctor. Ut eget tincidunt massa. Sed at vulputate dui. Nullam metus urna, volutpat nec felis nec, congue varius magna.
       </p>
