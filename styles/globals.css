@@ -232,5 +232,9 @@ footer {
   }
   .feed-child {
     width: 44%;
+    height: 25%;
+  }
+  .para {
+    margin-bottom: 30px;
   }
 }

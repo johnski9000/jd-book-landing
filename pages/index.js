@@ -69,7 +69,6 @@ export default function Home({posts}) {
     )
   }
   
-
   return (
     <div className="mainParent">
       <div className="parentTitle">
