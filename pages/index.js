@@ -16,8 +16,8 @@ export default function Home({posts}) {
   const {windowDimensions} = useWindowDimensions()
   const width = windowDimensions.width;
   const [flag, setFlag] = useState(true);
-  const [isActive, setActive] = useState(localStorage.getItem('isActive'));
-  const [isActive1, setActive1] = useState(localStorage.getItem('isActive1'));
+  const [isActive, setActive] = useState(false);
+  const [isActive1, setActive1] = useState(false);
 
   const ToggleClass = () => {
     setActive(!isActive); 
@@ -26,11 +26,6 @@ export default function Home({posts}) {
    const ToggleClass1 = () => {
     setActive1(!isActive1); 
    };
-
-   useEffect(()=>{
-    localStorage.setItem('isActive', isActive);
-    localStorage.setItem('isActive1', isActive1)
-  },[isActive, isActive1]);
 
 
   const handleClick = () => {
