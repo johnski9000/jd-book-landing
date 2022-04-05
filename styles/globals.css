@@ -37,7 +37,7 @@ a {
 
 .feature-parent {
   /* background-color: rgb(190, 188, 188); */
-  height: 800px;
+  height: 900px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -54,7 +54,7 @@ a {
 
 .feature-card {
   width: 85%;
-  height: 320px;
+  height: 48%;
   margin-top: 20px;
   display: flex;
   flex-flow: column;
@@ -233,6 +233,14 @@ footer {
   padding-top: 25px;
   padding-bottom: 25px;
   }
+  .feature-card {
+    flex-flow: column-reverse;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .feature-card h5 {
+    margin: 0;
+  }
   .feed-parent {
     width: 70%;
     display: flex;
@@ -254,6 +262,6 @@ footer {
   background-color: gray;
 }
 
-.is-active:click {
-  
+.bookInfo p {
+  text-align: center;
 }

@@ -52,8 +52,7 @@ export default function Home({posts}) {
             <h5>Title: {post.volumeInfo.title}</h5>
             <h6>Authors: {post.volumeInfo.authors}</h6>
             <h6>Page Count: {post.volumeInfo.pageCount}</h6>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ut purus varius neque lacinia mollis.</p>
-            {/* <p>{post.volumeInfo.description}</p> */}
+            <p>{post.volumeInfo.description.substring(0, 140)}</p>
           </div>
       </div>
     )
@@ -74,7 +73,7 @@ export default function Home({posts}) {
             <h5>Title: {post.volumeInfo.title}</h5>
             <h6>Authors: {post.volumeInfo.authors}</h6>
             <h6>Page Count: {post.volumeInfo.pageCount}</h6>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ut purus varius neque lacinia mollis.</p>
+            <p>{post.volumeInfo.description.substring(0, 140)}</p>
           </div>
       </div>
     )
@@ -134,6 +133,7 @@ export default function Home({posts}) {
             <h5>Title: {posts[8].volumeInfo.title}</h5>
             <h6>Authors: {posts[8].volumeInfo.authors}</h6>
             <h6>Page Count: {posts[8].volumeInfo.pageCount}</h6>
+            <p>{posts[8].volumeInfo.description.substring(0, 135)}</p>
           </div>
           
         </div>
@@ -148,6 +148,7 @@ export default function Home({posts}) {
             <h5>Title: {posts[9].volumeInfo.title}</h5>
             <h6>Authors: {posts[9].volumeInfo.authors}</h6>
             <h6>Page Count: {posts[9].volumeInfo.pageCount}</h6>
+            <p>{posts[9].volumeInfo.description.substring(0, 126)}</p>
           </div>
         </div>
       
