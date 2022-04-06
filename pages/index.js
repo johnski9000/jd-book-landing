@@ -6,18 +6,23 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import MenuOpenOutlinedIcon from '@mui/icons-material/MenuOpenOutlined';
 import {useState, useEffect} from "react"
-import Cookie from "js-cookie"
 import useWindowDimensions from './../actions/useWindowDimensions';
+import Cookie from "js-cookie";
 
 
 const logo = "/bookstore-logo.png"
 
-export default function Home({posts}) {
+export default function Home({posts, initialRememberValue}) {
   const {windowDimensions} = useWindowDimensions()
   const width = windowDimensions.width;
   const [flag, setFlag] = useState(true);
-  const [isActive, setActive] = useState(false);
+  const [isActive, setActive] = useState(() =>
+  JSON.parse(initialRememberValue));
   const [isActive1, setActive1] = useState(false);
+  useEffect(() => {
+    Cookie.set("isActive", JSON.stringify(isActive));
+  }, [isActive]);
+
 
   const ToggleClass = () => {
     setActive(!isActive); 
@@ -172,9 +177,18 @@ export default function Home({posts}) {
   )
 }
 
-Home.getInitialProps = async (ctx) => {
-  const res = await fetch('https://www.googleapis.com/books/v1/volumes?q=HTML5')
-  const json = await res.json()
-  return { posts: json.items }
-}
+// Home.getInitialProps = async (ctx) => {
+//   const res = await fetch('https://www.googleapis.com/books/v1/volumes?q=HTML5')
+//   const json = await res.json()
+//   return { posts: json.items }
+// }
 
+export async function getServerSideProps(context) {
+  console.log(context.req.cookies)
+  const cookies = context.req.cookies
+  const res = await fetch('https://www.googleapis.com/books/v1/volumes?q=HTML5')
+  const data = await res.json()
+  return {
+    props: { posts: data.items, initialRememberValue: cookies.isActive },
+  }
+}
