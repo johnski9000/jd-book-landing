@@ -8,7 +8,6 @@ import MenuOpenOutlinedIcon from '@mui/icons-material/MenuOpenOutlined';
 import {useState, useEffect} from "react"
 import useWindowDimensions from './../actions/useWindowDimensions';
 import Cookie from "js-cookie";
-import {parseCookies} from "./../actions/parseCookies";
 
 
 const logo = "/bookstore-logo.png"
@@ -184,12 +183,11 @@ export default function Home({posts, initialRememberValue}) {
 //   return { posts: json.items }
 // }
 
-export async function getServerSideProps({ req }) {
-  // console.log(context.req.cookies)
-  const cookies = parseCookies(req)
+export async function getServerSideProps(context) {
+  console.log(context.req.cookies)
+  const cookies = context.req.cookies
   const res = await fetch('https://www.googleapis.com/books/v1/volumes?q=HTML5')
   const data = await res.json()
-
   return {
     props: { posts: data.items, initialRememberValue: cookies.isActive },
   }
