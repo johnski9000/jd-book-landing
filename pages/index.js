@@ -184,7 +184,7 @@ export default function Home({posts, initialRememberValue}) {
 // }
 
 export async function getServerSideProps(context) {
-  console.log(context.req.cookies)
+  // console.log(context.req.cookies)
   const cookies = context.req.cookies
   const res = await fetch('https://www.googleapis.com/books/v1/volumes?q=HTML5')
   const data = await res.json()
