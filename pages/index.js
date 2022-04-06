@@ -7,21 +7,20 @@ import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import MenuOpenOutlinedIcon from '@mui/icons-material/MenuOpenOutlined';
 import {useState, useEffect} from "react"
 import useWindowDimensions from './../actions/useWindowDimensions';
-import Cookie from "js-cookie";
+// import Cookie from "js-cookie";
 
 
 const logo = "/bookstore-logo.png"
 
-export default function Home({posts, initialRememberValue}) {
+export default function Home({posts}) {
   const {windowDimensions} = useWindowDimensions()
   const width = windowDimensions.width;
   const [flag, setFlag] = useState(true);
-  const [isActive, setActive] = useState(() =>
-  JSON.parse(initialRememberValue));
+  const [isActive, setActive] = useState(false);
   const [isActive1, setActive1] = useState(false);
-  useEffect(() => {
-    Cookie.set("isActive", JSON.stringify(isActive));
-  }, [isActive]);
+  // useEffect(() => {
+  //   Cookie.set("isActive", JSON.stringify(isActive));
+  // }, [isActive]);
 
 
   const ToggleClass = () => {
@@ -184,11 +183,11 @@ export default function Home({posts, initialRememberValue}) {
 // }
 
 export async function getServerSideProps(context) {
-  console.log(context.req.cookies)
-  const cookies = context.req.cookies
+  // console.log(context.req.cookies)
+  // const cookies = context.req.cookies
   const res = await fetch('https://www.googleapis.com/books/v1/volumes?q=HTML5')
   const data = await res.json()
   return {
-    props: { posts: data.items, initialRememberValue: cookies.isActive },
+    props: { posts: data.items },
   }
 }
