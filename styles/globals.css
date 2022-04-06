@@ -236,8 +236,7 @@ footer {
   }
   .feature-card {
     flex-flow: column-reverse;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 20px 10px 20px 10px;
   }
   .feature-card h5 {
     margin: 0;

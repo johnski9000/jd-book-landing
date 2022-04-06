@@ -5,10 +5,9 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import MenuOpenOutlinedIcon from '@mui/icons-material/MenuOpenOutlined';
-import {useState, useEffect} from "react"
+import {useState, useEffect, useLayoutEffect} from "react"
 import useWindowDimensions from './../actions/useWindowDimensions';
 // import Cookie from "js-cookie";
-
 
 const logo = "/bookstore-logo.png"
 
@@ -18,10 +17,12 @@ export default function Home({posts}) {
   const [flag, setFlag] = useState(true);
   const [isActive, setActive] = useState(false);
   const [isActive1, setActive1] = useState(false);
+  // () =>
+  //   JSON.parse(isActive)
   // useEffect(() => {
   //   Cookie.set("isActive", JSON.stringify(isActive));
   // }, [isActive]);
-
+  
 
   const ToggleClass = () => {
     setActive(!isActive); 
